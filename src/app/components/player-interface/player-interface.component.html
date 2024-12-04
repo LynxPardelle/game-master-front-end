@@ -1,0 +1,28 @@
+<div>
+    @if (!isConnected) {
+    <h2>Unirse al Juego</h2>
+    <form (ngSubmit)="joinGame()">
+        <label for="name">Nombre:</label>
+        <input id="name" [(ngModel)]="playerName" name="name" required />
+        <label for="sessionId">ID de Sesión:</label>
+        <input id="sessionId" [(ngModel)]="sessionId" name="sessionId" type="number" required />
+        <button type="submit">Unirse</button>
+    </form>
+    } @else {
+    <h2>Bienvenido, {{ playerName }}</h2>
+    <p>Turno actual: {{ currentGameState?.currentTurn }}</p>
+    <ul>
+        @for (player of currentGameState?.players; track player.id){
+        <li>
+            {{ player.name }}
+        </li>
+        }
+    </ul>
+
+    @if (currentGameState?.currentTurn === playerName) {
+    <button (click)="performAction()">Realizar Acción</button>
+    } @else {
+    <p>Espera tu turno...</p>
+    }
+    }
+</div>

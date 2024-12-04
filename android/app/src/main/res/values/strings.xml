@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Game Master App</string>
+    <string name="title_activity_main">Game Master App</string>
+    <string name="package_name">game.master.lynxpardelle.com</string>
+    <string name="custom_url_scheme">game.master.lynxpardelle.com</string>
+</resources>

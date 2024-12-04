@@ -1,0 +1,27 @@
+<div>
+    <h1>Game Master Dashboard</h1>
+    <button routerLink="/session-config">Crear Nueva Sesión</button>
+    <h2>Sesiones Activas</h2>
+    <ul>
+        @if (sessions.length > 0) {
+            @for (session of sessions; track session.id) {
+                <li (click)="viewSession(session.id)">
+                    {{ session.name }} - Jugadores: {{ session.players?.length || 0 }}
+                </li>
+            }
+        } @else {
+        <p>No hay sesiones activas.</p>
+        }
+    </ul>
+    @if (currentGameState) {
+    <h3>Estado del Juego</h3>
+    <p>Turno actual: {{ currentGameState.currentTurn }}</p>
+    <ul>
+        @for (player of currentGameState.players; track player.id) {
+        <li>{{ player.name }}</li>
+        }
+    </ul>
+    <button (click)="nextTurn()">Siguiente Turno</button>
+    <button (click)="finalizeGame()">Finalizar Juego</button>
+    }
+</div>

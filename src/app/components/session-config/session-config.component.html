@@ -1,0 +1,10 @@
+<div>
+    <h1>Crear Nueva Sesión</h1>
+    <form (ngSubmit)="createSession()">
+        <label for="name">Nombre de la Sesión:</label>
+        <input id="name" [(ngModel)]="name" name="name" required />
+        <label for="maxPlayers">Máximo de Jugadores:</label>
+        <input id="maxPlayers" type="number" [(ngModel)]="maxPlayers" name="maxPlayers" required />
+        <button type="submit">Crear</button>
+    </form>
+</div>
